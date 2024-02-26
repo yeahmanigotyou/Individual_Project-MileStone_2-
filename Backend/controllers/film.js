@@ -1,7 +1,7 @@
 import db from "../db.js"
 
 export const getFilms = (req,res) =>{
-    const q = "SELECT * FROM film";
+    const q = "SELECT f.film_id, f.title AS film_title, GROUP_CONCAT(DISTINCT a.first_name, ' ', a.last_name) AS actors, c.name AS genre FROM film f JOIN film_actor fa ON f.film_id = fa.film_id JOIN actor a ON fa.actor_id = a.actor_id JOIN film_category fc ON f.film_id = fc.film_id JOIN category c ON fc.category_id = c.category_id GROUP BY f.film_id, f.title, c.name ORDER BY f.title";
 
     db.query(q,(err, data) =>{
         if(err) return res.json(err);
@@ -10,7 +10,7 @@ export const getFilms = (req,res) =>{
 }
 
 export const getFilm = (req, res) =>{
-    const q = "SELECT f.film_id, f.title, f.description, f.release_year, f.length, f.rating, f.special_features, l.name AS language, c.name AS category FROM film f JOIN language l ON f.language_id = l.language_id JOIN film_category fc ON f.film_id = fc.film_id JOIN category c ON fc.category_id = c.category_id WHERE f.language_id IS NOT NULL AND c.category_id IS NOT NULL AND f.film_id = ?";
+    const q = "SELECT f.film_id, f.title, f.description, f.release_year, f.rental_rate, f.length, f.rating, f.special_features, l.name AS language, c.name AS category FROM film f JOIN language l ON f.language_id = l.language_id JOIN film_category fc ON f.film_id = fc.film_id JOIN category c ON fc.category_id = c.category_id WHERE f.language_id IS NOT NULL AND c.category_id IS NOT NULL AND f.film_id = ?";
 
     db.query(q,[req.params.film_id], (err, data) =>{
         if(err) return res.json(err);

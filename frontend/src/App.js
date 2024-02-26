@@ -20,6 +20,7 @@ import Home from "./pages/Home";
 import Customer from "./pages/Customer";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Rent from "./pages/Rent";
 
 const Layout = () =>{
   return (
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
       {
         path:"/customer/:customer_id",
         element:<SingleCustomer/>
+      },
+      {
+        path:"/rent",
+        element:<Rent/>
       }
     ],
   },

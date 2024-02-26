@@ -77,6 +77,13 @@ const filmId = location.pathname.split("/")[2]
                             <p >
                                 {film.category}
                             </p>
+                            <h2>
+                                Rental Rate:
+                            </h2>
+                            <p>
+                                ${film.rental_rate}
+                            </p>
+                            <Link to={`http://localhost:3000/rent`}><button>RENT FILM</button></Link>
                         </div>
                     </div>
             </div>

@@ -4,6 +4,7 @@ import filmRoutes from "./routes/film.js"
 import customerRoutes from "./routes/customer.js"
 import homeRoutes from "./routes/home.js"
 import actorRoutes from "./routes/actor.js"
+import rentRoutes from "./routes/rent.js"
 
 const app = express()
 
@@ -13,6 +14,7 @@ app.use("/Backend/film", filmRoutes)
 app.use("/Backend/customer", customerRoutes)
 app.use("/Backend/home", homeRoutes)
 app.use("/Backend/actor", actorRoutes)
+app.use("/Backend/rent", rentRoutes)
 
 
 app.listen(8800, ()=> {

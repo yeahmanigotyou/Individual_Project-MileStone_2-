@@ -9,8 +9,16 @@ const Film = () => {
     
     const [query,setQuery] = useState("");
 
-    const search = (data) => {
-        return data.filter((item) => item.title.toLowerCase().includes(query));
+    const searchName = (data) => {
+        return data.filter((item) => item.film_title.toLowerCase().includes(query));
+    }
+
+    const searchActor = (data) => {
+        return data.filter((item) => item.actors.toLowerCase().includes(query));
+    }
+
+    const searchGenre = (data) => {
+        return data.filter((item) => item.genre.toLowerCase().includes(query));
     }
 
     const[film,setFilm] = useState([])
@@ -31,8 +39,12 @@ const Film = () => {
         <div className='home'>
             <div className='headRow'>
                 <h1>Films</h1>
-                <input type="text" placeholder='Search...' className='search' onChange={e=> setQuery(e.target.value)}/>
-                    <TableF data={search(film)}/>
+                <input type="text" placeholder='Title...' className='search' onChange={e=> setQuery(e.target.value)}/>
+                <input type="text" placeholder='Actor...' className='search' onChange={e=> setQuery(e.target.value)}/>
+                <input type="text" placeholder='Genre...' className='search' onChange={e=> setQuery(e.target.value)}/> 
+                    <TableF data={searchName(film)}/>
+                    <TableF data={searchActor(film)}/>
+                    <TableF data={searchGenre(film)}/>
             </div>
         </div>
     );
