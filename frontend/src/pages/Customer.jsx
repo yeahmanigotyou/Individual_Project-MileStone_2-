@@ -29,6 +29,11 @@ const Customer = () => {
     <div className='home'>
         <div className='headRow'>
             <h1>Customers</h1>
+            <div className='addCus'>
+                <Link to ={`http://localhost:3000/add`}>
+                                    <button>Add Customer</button>
+                </Link>
+            </div>
             <input type="text" placeholder='Search...' className='search' onChange={e=> setQuery(e.target.value)}/>
                 <TableC data={search(customer)}/>
         </div>

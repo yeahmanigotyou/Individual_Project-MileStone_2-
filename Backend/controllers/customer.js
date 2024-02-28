@@ -19,11 +19,27 @@ export const getCustomer = (req,res) =>{
 }
 
 export const addCustomer = (req,res) =>{
-    res.json("from controlla")
-}
+    const q = "INSERT INTO single_customer (`customer_id`, `customer_name`, `email`, `customer_address`, `customer_district`, `customer_city`, `customer_country`, `customer_postal_code`, `phone`) VALUES (?)";
+
+    const values = [
+        req.body.customer_id,
+        req.body.customer_name,
+        req.body.email,
+        req.body.customer_address,
+        req.body.customer_district,
+        req.body.customer_city,
+        req.body.customer_country,
+        req.body.customer_postal_code,
+        req.body.phone
+    ];
+
+    db.query(q, [values], (err, data) => {
+        if(err) return res.status(500).json(err);
+        return res.json("Customer has been creatd.");
+    });
+};
 
 export const updateCustomer = (req,res) =>{
-    console.log(req.body);
     const customerID = req.params.customer_id
     const q = "UPDATE single_customer SET `customer_name`=?, `email`=?, `customer_address`=?, `customer_district`=?, `customer_city`=?, `customer_country`=?, `customer_postal_code`=?, `phone`=? WHERE `customer_id`=?";
 
@@ -40,11 +56,9 @@ export const updateCustomer = (req,res) =>{
     ]
 
     db.query(q,[...values, customerID], (err,data) =>{
-        if(err){
-            console.error("Error in database query:", err);
+        if(err)
             return res.status(500).json(err);
-        }
-        return res.json("Customer has been updated.");
+            return res.json("Customer has been updated.");
     })
 }
 

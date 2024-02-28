@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useLocation, useNavigate} from 'react-router-dom'
 
-console.log()
 const Update = () => {
 
     const state = useLocation().state
@@ -41,21 +40,24 @@ const Update = () => {
     
     return (
         <div className='home'>
-            <div className='update'>
-                    <form className='form'>
-                        <p>ID: <input type="text" value={customer_id} readOnly placeholder=""/></p>
-                        <p>Name: <input type="text" value={customer_name} placeholder="" onChange={e=>setName(e.target.value)}/></p>
-                        <p>Email: <input type="text" value={email} placeholder="" onChange={e=>setEmail(e.target.value)}/></p>
-                        <p>Address: <input type="text" value={customer_address} placeholder="" onChange={e=>setAddress(e.target.value)}/></p>
-                        <p>District: <input type="text" value={customer_district} placeholder="" onChange={e=>setDistrict(e.target.value)}/></p>
-                        <p>City: <input type="text" value={customer_city} placeholder="" onChange={e=>setCity(e.target.value)}/></p>
-                        <p>Country: <input type="text" value={customer_country} placeholder="" onChange={e=>setCountry(e.target.value)}/></p>
-                        <p>Postal: <input type="text" value={customer_postal_code} placeholder="" onChange={e=>setPostal(e.target.value)}/></p>
-                        <p>Phone: <input type="text" value={phone} placeholder="" onChange={e=>setPhone(e.target.value)}/></p>
-                    </form>
-                    <div className='button'>
-                        <button onClick={handleClick}>SUBMIT</button>
-                    </div>
+            <div className='headRow'>
+            <h1>Update Customer</h1>
+                <div className='update'>
+                        <form className='form'>
+                            <p>ID: <input type="text" value={customer_id} readOnly placeholder=""/></p>
+                            <p>Name: <input type="text" value={customer_name} placeholder="" onChange={e=>setName(e.target.value)}/></p>
+                            <p>Email: <input type="text" value={email} placeholder="" onChange={e=>setEmail(e.target.value)}/></p>
+                            <p>Address: <input type="text" value={customer_address} placeholder="" onChange={e=>setAddress(e.target.value)}/></p>
+                            <p>District: <input type="text" value={customer_district} placeholder="" onChange={e=>setDistrict(e.target.value)}/></p>
+                            <p>City: <input type="text" value={customer_city} placeholder="" onChange={e=>setCity(e.target.value)}/></p>
+                            <p>Country: <input type="text" value={customer_country} placeholder="" onChange={e=>setCountry(e.target.value)}/></p>
+                            <p>Postal: <input type="text" value={customer_postal_code} placeholder="" onChange={e=>setPostal(e.target.value)}/></p>
+                            <p>Phone: <input type="text" value={phone} placeholder="" onChange={e=>setPhone(e.target.value)}/></p>
+                        </form>
+                        <div className='button'>
+                            <button onClick={handleClick}>SUBMIT</button>
+                        </div>
+                </div>
             </div>
         </div>
     )
