@@ -1,7 +1,7 @@
 import db from "../db.js"
 
 export const getCustomers = (req,res) =>{
-    const q = "SELECT * FROM customer";
+    const q = "SELECT * FROM single_customer ORDER BY customer_id ASC";
 
     db.query(q,(err, data) =>{
         if(err) return res.json(err);
@@ -10,11 +10,11 @@ export const getCustomers = (req,res) =>{
 }
 
 export const getCustomer = (req,res) =>{
-    const q = "SELECT c.customer_id, CONCAT(c.first_name, ' ', c.last_name) AS customer_name, c.email, c.address AS customer_address, c.district AS customer_district, c.city AS customer_city, c.country AS customer_country, c.postal_code AS customer_postal_code, c.phone, s.store_id, s.manager_staff_id, CONCAT(s_a.address, ', ', s_a.district, ', ', s_a.city, ', ', s_a.country) AS store_address FROM customer c JOIN address c_a ON c.address_id = c_a.address_id JOIN store s ON c.store_id = s.store_id JOIN address s_a ON s.address_id = s_a.address_id WHERE c.customer_id = ? ORDER BY c.customer_id = ?";
+    const q = "SELECT * from single_customer sc WHERE sc.customer_id = ?";
 
-    db.query(q,(err, data) =>{
+    db.query(q,[req.params.customer_id], (err, data) =>{
         if(err) return res.json(err);
-        return res.status(200).json(data);
+        return res.status(200).json(data[0]);
     })
 }
 
@@ -23,7 +23,29 @@ export const addCustomer = (req,res) =>{
 }
 
 export const updateCustomer = (req,res) =>{
-    res.json("from controlla")
+    console.log(req.body);
+    const customerID = req.params.customer_id
+    const q = "UPDATE single_customer SET `customer_name`=?, `email`=?, `customer_address`=?, `customer_district`=?, `customer_city`=?, `customer_country`=?, `customer_postal_code`=?, `phone`=? WHERE `customer_id`=?";
+
+    const values = [
+        req.body.customer_name,
+        req.body.email,
+        req.body.customer_address,
+        req.body.customer_district,
+        req.body.customer_city,
+        req.body.customer_country,
+        req.body.customer_postal_code,
+        req.body.phone,
+        req.body.customer_id
+    ]
+
+    db.query(q,[...values, customerID], (err,data) =>{
+        if(err){
+            console.error("Error in database query:", err);
+            return res.status(500).json(err);
+        }
+        return res.json("Customer has been updated.");
+    })
 }
 
 export const deleteCustomer = (req,res) =>{

@@ -10,7 +10,7 @@ const Customer = () => {
     const [query,setQuery] = useState("");
 
     const search = (data) => {
-        return data.filter((item) =>  item.customer_id.toString().includes(query) || item.first_name.toLowerCase().includes(query) || item.last_name.toLowerCase().includes(query));
+        return data.filter((item) =>  item.customer_id.toString().includes(query) || item.customer_name.toLowerCase().includes(query));
     }
 
     useEffect(()=>{

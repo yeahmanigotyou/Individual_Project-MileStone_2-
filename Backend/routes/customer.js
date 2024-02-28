@@ -10,7 +10,7 @@ const router = express.Router()
 
 router.get("/", getCustomers)
 
-router.get("/:customer_id", getCustomer)
+router.get('/:customer_id', getCustomer)
 
 router.post('/', addCustomer)
 

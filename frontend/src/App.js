@@ -68,17 +68,17 @@ const router = createBrowserRouter([
       {
         path:"/rent",
         element:<Rent/>
+      },
+      {
+        path:"/add",
+        element:<Add/>,
+      },
+      {
+        path:"/update",
+        element:<Update/>,
       }
-    ],
-  },
-    {
-      path:"/add",
-      element:<Add/>,
-    },
-    {
-      path:"/update",
-      element:<Update/>,
-    },
+    ]
+  }
 ]);
 
 function App() {

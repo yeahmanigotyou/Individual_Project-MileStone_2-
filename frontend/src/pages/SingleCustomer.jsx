@@ -33,22 +33,52 @@ const customerId = location.pathname.split("/")[2]
                         </div>
                         <div className='content'>
                             <h2>
-                                First Name: 
+                                Name: 
                             </h2>
                             <p>
-                                {customer.first_name}
-                            </p>
-                            <h2>
-                                Last Name: 
-                            </h2>
-                            <p>
-                                {customer.last_name}
+                                {customer.customer_name}
                             </p>
                             <h2>
                                 Email:  
                             </h2>
                             <p>
                                 {customer.email}
+                            </p>
+                            <h2>
+                                Address:  
+                            </h2>
+                            <p>
+                                {customer.customer_address}
+                            </p>
+                            <h2>
+                                District:  
+                            </h2>
+                            <p>
+                                {customer.customer_district}
+                            </p>
+                            <h2>
+                                City:  
+                            </h2>
+                            <p>
+                                {customer.customer_city}
+                            </p>
+                            <h2>
+                                Country:  
+                            </h2>
+                            <p>
+                                {customer.customer_country}
+                            </p>
+                            <h2>
+                                Postal Code:  
+                            </h2>
+                            <p>
+                                {customer.customer_postal_code}
+                            </p>
+                            <h2>
+                                Phone Number: 
+                            </h2>
+                            <p>
+                                {customer.phone}
                             </p>
                             <h2>
                                 Customer ID:  
@@ -56,12 +86,7 @@ const customerId = location.pathname.split("/")[2]
                             <p>
                                 {customer.customer_id}
                             </p>
-                            <h2>
-                                Email:  
-                            </h2>
-                            <p>
-                                {customer.email}
-                            </p>
+                            <Link to={`/update`} state={customer}><button>UPDATE</button></Link>
                         </div>
                     </div>
             </div>
