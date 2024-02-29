@@ -58,6 +58,52 @@ footer{
     text-align: center;
 }
 
+    .TableH{
+        tbody{
+            flex-direction: column;
+        
+        tr{
+            flex: 1;
+            display: flex;
+            flex-direction:row;
+            justify-content:stretch;
+            font-size: 12px;
+    
+            &:first-child > th{
+                background-color: #5e5d5db4;
+            }
+    
+            &:nth-child(even){
+                background-color: #f2f2f2;
+            }
+    
+            &:hover{
+                background-color: rgba(128, 128, 128, 0.308);
+            }
+    
+            th{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 200px;
+                text-align: center;
+            }
+    
+            td{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 200px;
+                text-align: center;
+                border-left: 1px;
+                border-left: #000000;
+                border-right: #000000;
+            }
+        }
+        }
+    
+    }
+
 .TableF{
     tbody{
         flex-direction: column;
@@ -103,6 +149,7 @@ footer{
     }
 
 }
+
 
 .TableC{
     justify-content: center;
@@ -152,6 +199,8 @@ footer{
     }
 
 }
+
+
 
 .listItem{
     margin-bottom: 20px;
@@ -313,6 +362,7 @@ footer{
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+
 
         .addCus{
             padding-bottom: 15px;
