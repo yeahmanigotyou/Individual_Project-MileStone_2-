@@ -39,9 +39,9 @@ const Film = () => {
         <div className='home'>
             <div className='headRow'>
                 <h1>Films</h1>
-                <input type="text" placeholder='Title...' className='search' onChange={e=> setQuery(e.target.value)}/>
-                <input type="text" placeholder='Actor...' className='search' onChange={e=> setQuery(e.target.value)}/>
-                <input type="text" placeholder='Genre...' className='search' onChange={e=> setQuery(e.target.value)}/> 
+                <input type="text" placeholder='Search by Title...' className='search' onChange={e=> setQuery(e.target.value)}/>
+                <input type="text" placeholder='Search by Actor...' className='search' onChange={e=> setQuery(e.target.value)}/>
+                <input type="text" placeholder='Search by Genre...' className='search' onChange={e=> setQuery(e.target.value)}/> 
                     <TableF data={searchName(film)}/>
                     <TableF data={searchActor(film)}/>
                     <TableF data={searchGenre(film)}/>
