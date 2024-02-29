@@ -22,6 +22,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Rent from "./pages/Rent";
 import History from "./pages/History";
+import Delete from "./pages/Delete";
 
 const Layout = () =>{
   return (
@@ -77,6 +78,10 @@ const router = createBrowserRouter([
       {
         path:"/update",
         element:<Update/>,
+      },
+      {
+        path:"/delete",
+        element:<Delete/>
       },
       {
         path:"/history/:customer_id",

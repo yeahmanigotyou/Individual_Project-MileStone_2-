@@ -63,6 +63,11 @@ export const updateCustomer = (req,res) =>{
 }
 
 export const deleteCustomer = (req,res) =>{
-    res.json("from controlla")
+    const q = "DELETE FROM single_customer WHERE customer_id = ?";
+
+    db.query(q,[req.params.customer_id], (err, data) =>{
+        if(err) return res.json(err);
+        return res.status(200).json(data);
+    })
 }
 

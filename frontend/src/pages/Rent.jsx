@@ -35,24 +35,6 @@ const Rent = () => {
 
     };
 
-    const handleClickReturn = async (e) =>{
-        e.preventDefault()
-        try{
-            await axios.delete("http://localhost:8800/Backend/rent", {
-                customer_id,
-                customer_name,
-                film_id,
-                movie_title, 
-                isoDate,
-                return_date
-            })
-            navigate("/film")
-        }catch(err){
-            console.log(err)
-        }
-
-    };
-
 
     return (
         <div className='home'>
@@ -66,9 +48,6 @@ const Rent = () => {
                 <p>Enter Full Name: <input type="text" placeholder="Full Name..." onChange={e=>setName(e.target.value)}/> </p>
                 <div className='button'>
                     <button onClick={handleClickRent}>Rent</button>
-                </div>
-                <div className='button'>
-                    <button onClick={handleClickReturn}>Return</button>
                 </div>
             </div>
         </div>
