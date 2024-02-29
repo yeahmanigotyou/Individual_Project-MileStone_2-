@@ -17,7 +17,7 @@ const Rent = () => {
 
     const navigate = useNavigate()
 
-    const handleClick = async (e) =>{
+    const handleClickRent = async (e) =>{
         e.preventDefault()
         try{
             await axios.post("http://localhost:8800/Backend/rent", {
@@ -28,7 +28,25 @@ const Rent = () => {
                 isoDate,
                 return_date
             })
-            navigate("/customer")
+            navigate("/film")
+        }catch(err){
+            console.log(err)
+        }
+
+    };
+
+    const handleClickReturn = async (e) =>{
+        e.preventDefault()
+        try{
+            await axios.delete("http://localhost:8800/Backend/rent", {
+                customer_id,
+                customer_name,
+                film_id,
+                movie_title, 
+                isoDate,
+                return_date
+            })
+            navigate("/film")
         }catch(err){
             console.log(err)
         }
@@ -47,7 +65,10 @@ const Rent = () => {
                 <p>Enter Customer ID: <input type="text" placeholder="Customer ID..." onChange={e=>setCustomerID(e.target.value)}/> </p>
                 <p>Enter Full Name: <input type="text" placeholder="Full Name..." onChange={e=>setName(e.target.value)}/> </p>
                 <div className='button'>
-                    <button onClick={handleClick}>Add</button>
+                    <button onClick={handleClickRent}>Rent</button>
+                </div>
+                <div className='button'>
+                    <button onClick={handleClickReturn}>Return</button>
                 </div>
             </div>
         </div>

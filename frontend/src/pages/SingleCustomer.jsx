@@ -87,6 +87,7 @@ const customerId = location.pathname.split("/")[2]
                                 {customer.customer_id}
                             </p>
                             <Link to={`/update`} state={customer}><button>UPDATE</button></Link>
+                            <Link to={`/history/${customerId}`} state={customer}><button>RENTAL HISTORY</button></Link>
                         </div>
                     </div>
             </div>

@@ -21,6 +21,7 @@ import Customer from "./pages/Customer";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Rent from "./pages/Rent";
+import History from "./pages/History";
 
 const Layout = () =>{
   return (
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
       {
         path:"/update",
         element:<Update/>,
+      },
+      {
+        path:"/history/:customer_id",
+        element:<History/>
       }
     ]
   }

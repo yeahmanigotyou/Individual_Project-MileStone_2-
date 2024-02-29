@@ -21,3 +21,9 @@ export const updateRent = (req,res) => {
     });    
      
 }
+
+
+export const returnFilm = (req,res) => {
+    const q = "DELETE FROM rented_movies WHERE customer_id=?";
+    return res.json("Movie has been returned.");
+}
